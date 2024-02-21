@@ -38,7 +38,7 @@ export default function LoginRegister({ setShow }) {
       {isLoading ? (
         <Loader />
       ) : (
-        <>
+        <div>
           <div className="form-container sign-up-container">
             <form action="#">
               <h1>Sign Up</h1>
@@ -48,7 +48,10 @@ export default function LoginRegister({ setShow }) {
               <input type="password" placeholder="Password" />
               <button onClick={handleSignUpClick}>Sign Up</button>
               <span>
-                Already have an account ? <a>Login</a>
+                Already have an account ?{" "}
+                <a id="SignIn" onClick={handleSignInClick}>
+                  Login
+                </a>
               </span>
               <svg
                 width="307"
@@ -185,7 +188,10 @@ export default function LoginRegister({ setShow }) {
                 <a href="#">Forgot your password?</a>
                 <button type="submit">Sign In</button>
                 <span>
-                  You don't have an account ? <a>create an account</a>
+                  You don't have an account ?{" "}
+                  <a id="SignUp" onClick={handleSignUpClick}>
+                    create an account
+                  </a>
                 </span>
               </Form>
             </Formik>
@@ -212,7 +218,7 @@ export default function LoginRegister({ setShow }) {
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

@@ -245,3 +245,24 @@
 .modal-content {
   border: none !important;
 }
+
+@media (max-width: 480px) {
+  .overlay-container {
+    display: none;
+  }
+  .sign-in-container {
+    width: 100%;
+    transform: translateX(0%) ;
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+  }
+   .sign-up-container {
+    width: 100%;
+    width: 100%;
+    transform: translateX(0%) !important;
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+  }
+}

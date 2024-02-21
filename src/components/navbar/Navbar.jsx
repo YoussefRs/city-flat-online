@@ -439,7 +439,7 @@ export default function Navbar() {
                   />
                 </svg>
               </i>
-              <i>
+              <i onClick={() => setShow(true)}>
                 <svg
                   width="46"
                   height="46"

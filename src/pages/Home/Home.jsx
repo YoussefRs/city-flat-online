@@ -151,16 +151,16 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="_cards_container">
-          <div className="cards_layer"></div>
-          <div className="card_ctr">
-            {apartmentList.map((card, i) => (
-              <Link key={i} to={`/details/${card.id}`} state={{ card }}>
-                <Cards card={card} />
-              </Link>
-            ))}
+          <div className="_cards_container">
+            <div className="cards_layer"></div>
+            <div className="card_ctr">
+              {apartmentList.map((card, i) => (
+                <Link key={i} to={`/details/${card.id}`} state={{ card }}>
+                  <Cards card={card} />
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
         <section className="_search_container">
           <div className="search_ctr">
             <div className="img_ctr">
@@ -214,7 +214,7 @@ export default function Home() {
           </div>
         </section>
         <div className="_testimonial_container">
-          <TestimonialsSlider />
+          {/* <TestimonialsSlider /> */}
         </div>
 
         {/* <section className="_testimonial_container">
