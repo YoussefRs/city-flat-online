@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./AppartementsContent.css";
-import apartement from "../../../../assets/homepage_mats/vue-du-modele-maison-3d.png";
 import Modal from "../../../../components/modals/Modal";
 import { useModal } from "../../../../hooks/useModal";
 import { v4 as uuidv4 } from "uuid";
@@ -63,41 +62,6 @@ export default function AppartementsContent() {
     setFormData({ ...formData, [type]: updatedValue });
   };
 
-//  const handleImageChange = async (event) => {
-//    const selectedImages = event.target.files;
-//    const newPictures = [];
-
-//    for (let i = 0; i < selectedImages.length; i++) {
-//      const file = selectedImages[i];
-//      const base64Image = await convertToBase64(file);
-//      const id = Date.now() + i;
-//      newPictures.push({ id, url: base64Image });
-//    }
-
-//    let updatedPictures = {};
-
-//    if (formData.pictures.length + newPictures.length <= 4) {
-//      updatedPictures = {
-//        pictures: formData.pictures.concat(newPictures),
-//      };
-//    } else {
-//      updatedPictures = {
-//        pictures: formData.pictures.concat(
-//          newPictures.slice(0, 4 - formData.pictures.length)
-//        ),
-//        more: formData.more
-//          ? formData.more.concat(newPictures.slice(4 - formData.pictures.length))
-//          : newPictures.slice(4 - formData.pictures.length),
-//      };
-//    }
-
-//    setFormData((prevFormData) => ({
-//      ...prevFormData,
-//      ...updatedPictures,
-//    }));
-//  };
-
-  
   const handleImageChange = async (event) => {
     const selectedImages = event.target.files;
     const newPictures = [];
@@ -182,8 +146,6 @@ export default function AppartementsContent() {
     closeModal();
   };
 
-  console.log(apartmentList);
-
   return (
     <>
       <div className="container-fluid py-4">
@@ -213,7 +175,7 @@ export default function AppartementsContent() {
                   height="70"
                   rx="20"
                   fill="white"
-                  fill-opacity="0.08"
+                  fillOpacity="0.08"
                 />
                 <rect
                   x="0.5"
@@ -222,7 +184,7 @@ export default function AppartementsContent() {
                   height="69"
                   rx="19.5"
                   stroke="white"
-                  stroke-opacity="0.16"
+                  strokeOpacity="0.16"
                 />
                 <path
                   d="M35.0198 36.4046L35.0198 48.7281H32.9802L32.9802 36.4046L20.6567 36.4046L20.6567 34.365L32.9802 34.365L32.9802 22.0414H35.0198L35.0198 34.365L47.3433 34.365L47.3433 36.4046L35.0198 36.4046Z"
@@ -315,7 +277,9 @@ export default function AppartementsContent() {
                       </svg>
                       <div className="d-flex flex-column">
                         <span className="_medium_title">bedroom</span>
-                        <span className="app_medium_title">4 rooms</span>
+                        <span className="app_medium_title">
+                          {app?.bedroom} rooms
+                        </span>
                       </div>
                     </div>
                     <div className="d-flex align-items-center gap-2">
@@ -370,8 +334,10 @@ export default function AppartementsContent() {
                           </defs>
                         </svg>
                         <div className="d-flex flex-column">
-                          <span className="_medium_title">nedroom</span>
-                          <span className="app_medium_title">2 rooms</span>
+                          <span className="_medium_title">bathroom</span>
+                          <span className="app_medium_title">
+                            {app?.bathroom} rooms
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -381,7 +347,20 @@ export default function AppartementsContent() {
                       {app?.price} € <span>/ month</span>
                     </p>
                     <div className="d-flex gap-2">
-                      <div className="edit-btn"></div>
+                      <div className="edit-btn">
+                        <svg
+                          width="25"
+                          height="15"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21.9632 1.07832C20.5253 -0.35944 18.1941 -0.35944 16.7562 1.07832L2.15936 15.6739C2.05933 15.7739 1.9871 15.8979 1.94939 16.034L0.0298562 22.9634C-0.0490855 23.2475 0.0311345 23.5517 0.239515 23.7604C0.448215 23.9687 0.752476 24.0489 1.0366 23.9703L7.96653 22.0507C8.10268 22.0129 8.22669 21.9407 8.32672 21.8407L22.9233 7.24481C24.3589 5.80609 24.3589 3.47704 22.9233 2.03832L21.9632 1.07832ZM3.9421 16.2057L15.8885 4.26L19.7413 8.11245L7.79459 20.0581L3.9421 16.2057ZM3.1725 17.7498L6.25059 20.828L1.99285 22.0075L3.1725 17.7498ZM21.7663 6.08796L20.8986 6.9556L17.0455 3.10282L17.9135 2.23518C18.7122 1.43656 20.0072 1.43656 20.8059 2.23518L21.7663 3.19518C22.5637 3.99475 22.5637 5.2887 21.7663 6.08796Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </div>
                       <div className="close-btn"></div>
                     </div>
                   </div>
@@ -407,7 +386,7 @@ export default function AppartementsContent() {
             />
 
             <div className="row">
-              <div className="col-4">
+              <div className="col-3" style={{ paddingRight: 0 }}>
                 <label for="price">price:</label>
                 <input
                   type="number"
@@ -415,11 +394,11 @@ export default function AppartementsContent() {
                   name="price"
                   value={formData.price}
                   onChange={handleInputChange}
-                  placeholder="Enter Price"
+                  placeholder="Price"
                   required
                 />
               </div>
-              <div className="col-4">
+              <div className="col-4" style={{ paddingRight: 0 }}>
                 <label for="startDate">start date:</label>
                 <input
                   type="date"
@@ -431,7 +410,7 @@ export default function AppartementsContent() {
                   required
                 />
               </div>
-              <div className="col-4">
+              <div className="col-4" style={{ paddingRight: 0 }}>
                 <label for="endDate">end date:</label>
                 <input
                   type="date"
@@ -514,10 +493,15 @@ export default function AppartementsContent() {
 
             <div className="row">
               <label for="first">services:</label>
-              <div className="__services col-5 col-md-3">
-                <label for="myCheckbox" class="checkbox">
+              <div className="__services col-4 col-md-3">
+                <label
+                  for="myCheckbox"
+                  className={`checkbox ${
+                    formData.parking ? "service_selected" : ""
+                  }`}
+                >
                   <input
-                    class="checkbox__input"
+                    className="checkbox__input"
                     type="checkbox"
                     id="myCheckbox"
                     checked={formData.parking}
@@ -526,7 +510,7 @@ export default function AppartementsContent() {
                     }
                   />
                   <svg
-                    class="checkbox__icon"
+                    className="checkbox__icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 22 22"
                   >
@@ -540,21 +524,21 @@ export default function AppartementsContent() {
                       rx="3"
                     />
                     <path
-                      class="tick"
+                      className="tick"
                       stroke="#0DB254"
                       fill="none"
                       stroke-linecap="round"
-                      stroke-width="4"
+                      strokeWidth="4"
                       d="M4 10l5 5 9-9"
                     />
                   </svg>
-                  <span class="checkbox__label">
+                  <span className="checkbox__label">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-car-front"
+                      className="bi bi-car-front"
                       viewBox="0 0 16 16"
                     >
                       <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0m10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17s2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276" />
@@ -564,10 +548,15 @@ export default function AppartementsContent() {
                   </span>
                 </label>
               </div>
-              <div className="__services col-5 col-md-3">
-                <label for="myCheckbox_2" class="checkbox">
+              <div className="__services col-4 col-md-3">
+                <label
+                  for="myCheckbox_2"
+                  className={`checkbox ${
+                    formData.food ? "service_selected" : ""
+                  }`}
+                >
                   <input
-                    class="checkbox__input"
+                    className="checkbox__input"
                     type="checkbox"
                     id="myCheckbox_2"
                     checked={formData.food}
@@ -576,7 +565,7 @@ export default function AppartementsContent() {
                     }
                   />
                   <svg
-                    class="checkbox__icon"
+                    className="checkbox__icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 22 22"
                   >
@@ -590,15 +579,15 @@ export default function AppartementsContent() {
                       rx="3"
                     />
                     <path
-                      class="tick"
+                      className="tick"
                       stroke="#0DB254"
                       fill="none"
                       stroke-linecap="round"
-                      stroke-width="4"
+                      strokeWidth="4"
                       d="M4 10l5 5 9-9"
                     />
                   </svg>
-                  <span class="checkbox__label">
+                  <span className="checkbox__label">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 256 256"
@@ -613,10 +602,15 @@ export default function AppartementsContent() {
                   </span>
                 </label>
               </div>
-              <div className="__services col-5 col-md-3">
-                <label for="myCheckbox_3" class="checkbox">
+              <div className="__services col-4 col-md-3">
+                <label
+                  for="myCheckbox_3"
+                  className={`checkbox ${
+                    formData.laundry ? "service_selected" : ""
+                  }`}
+                >
                   <input
-                    class="checkbox__input"
+                    className="checkbox__input"
                     type="checkbox"
                     id="myCheckbox_3"
                     checked={formData.laundry}
@@ -625,7 +619,7 @@ export default function AppartementsContent() {
                     }
                   />
                   <svg
-                    class="checkbox__icon"
+                    className="checkbox__icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 22 22"
                   >
@@ -639,19 +633,19 @@ export default function AppartementsContent() {
                       rx="3"
                     />
                     <path
-                      class="tick"
+                      className="tick"
                       stroke="#0DB254"
                       fill="none"
                       stroke-linecap="round"
-                      stroke-width="4"
+                      strokeWidth="4"
                       d="M4 10l5 5 9-9"
                     />
                   </svg>
-                  <span class="checkbox__label">
+                  <span className="checkbox__label">
                     <svg
                       width="24"
                       height="24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"

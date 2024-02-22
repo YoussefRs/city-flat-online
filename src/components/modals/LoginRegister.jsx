@@ -15,6 +15,8 @@ export default function LoginRegister({ setShow }) {
   );
   const dispatch = useDispatch();
 
+   const [showPassword, setShowPassword] = useState(false);
+
   const handleSignUpClick = () => {
     const container = document.getElementById("container");
     container.classList.add("right-panel-active");
@@ -182,7 +184,13 @@ export default function LoginRegister({ setShow }) {
                 <Field type="email" name="email" placeholder="Email" />
                 <ErrorMessage name="email" component="div" />
 
-                <Field type="password" name="password" placeholder="Password" />
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  />
+                  
+                
                 <ErrorMessage name="password" component="div" />
 
                 <a href="#">Forgot your password?</a>

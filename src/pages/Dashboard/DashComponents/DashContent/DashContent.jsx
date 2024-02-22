@@ -53,8 +53,8 @@ export default function DashContent() {
                             y2="25.2589"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#AE7D36" />
-                            <stop offset="1" stop-color="#F5F5B2" />
+                            <stop stopColor="#AE7D36" />
+                            <stop offset="1" stopColor="#F5F5B2" />
                           </linearGradient>
                           <linearGradient
                             id="paint1_linear_161_2147"
@@ -64,8 +64,8 @@ export default function DashContent() {
                             y2="41.1479"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#AE7D36" />
-                            <stop offset="1" stop-color="#F5F5B2" />
+                            <stop stopColor="#AE7D36" />
+                            <stop offset="1" stopColor="#F5F5B2" />
                           </linearGradient>
                           <linearGradient
                             id="paint2_linear_161_2147"
@@ -75,8 +75,8 @@ export default function DashContent() {
                             y2="51.1422"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#AE7D36" />
-                            <stop offset="1" stop-color="#F5F5B2" />
+                            <stop stopColor="#AE7D36" />
+                            <stop offset="1" stopColor="#F5F5B2" />
                           </linearGradient>
                         </defs>
                       </svg>
@@ -109,7 +109,7 @@ export default function DashContent() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clip-path="url(#clip0_161_2161)">
+                        <g clipPath="url(#clip0_161_2161)">
                           <path
                             d="M0 0V4.20003H2.09997V42H16.7999V33.6H25.2V42H39.8999V4.20003H41.9999V0H0ZM12.6 29.4H8.39996V25.2H12.6V29.4ZM12.6 21H8.39996V16.7999H12.6V21ZM12.6 12.6H8.39996V8.39996H12.6V12.6ZM23.1 29.4H18.9V25.2H23.1V29.4ZM23.1 21H18.9V16.7999H23.1V21ZM23.1 12.6H18.9V8.39996H23.1V12.6ZM33.5999 29.4H29.3999V25.2H33.5999V29.4ZM33.5999 21H29.3999V16.7999H33.5999V21ZM33.5999 12.6H29.3999V8.39996H33.5999V12.6Z"
                             fill="url(#paint0_linear_161_2161)"
@@ -124,8 +124,8 @@ export default function DashContent() {
                             y2="7.37815"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#07D25F" />
-                            <stop offset="1" stop-color="#028139" />
+                            <stop stopColor="#07D25F" />
+                            <stop offset="1" stopColor="#028139" />
                           </linearGradient>
                           <clipPath id="clip0_161_2161">
                             <rect width="42" height="42" fill="white" />
@@ -175,8 +175,8 @@ export default function DashContent() {
                             y2="47.9273"
                             gradientUnits="userSpaceOnUse"
                           >
-                            <stop stop-color="#C23B01" />
-                            <stop offset="1" stop-color="#FF6E2F" />
+                            <stop stopColor="#C23B01" />
+                            <stop offset="1" stopColor="#FF6E2F" />
                           </linearGradient>
                         </defs>
                       </svg>

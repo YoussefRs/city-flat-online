@@ -10,6 +10,7 @@ import { useModal } from "../../hooks/useModal";
 export default function Profile() {
   const [activeTab, setActiveTab] = useState("profile");
   const { showModal, openModal, closeModal } = useModal();
+  const admin = JSON.parse(localStorage.getItem("user"));
 
   const handleTabClick = (tab, event) => {
     event.preventDefault();
@@ -48,7 +49,7 @@ export default function Profile() {
                       change
                     </button>
                     <br />
-                    <h3>Hello Alex</h3>
+                    <h3>Hello, {admin?.username} </h3>
                     <span>Description</span>
                   </div>
                 </div>
@@ -188,11 +189,12 @@ export default function Profile() {
                                     Full Name:
                                   </label>
                                   <input
-                                    type="email"
-                                    name="email"
+                                    type="text"
+                                    name="text"
                                     className="form-control"
-                                    value=""
+                                    value={admin?.username}
                                     required
+                                    style={{ pointerEvents: "none" }}
                                   />
                                 </div>
                               </div>
@@ -207,8 +209,9 @@ export default function Profile() {
                                     type="tel"
                                     name="phone"
                                     className="form-control"
-                                    value=""
+                                    value={admin?.phone}
                                     required
+                                    style={{ pointerEvents: "none" }}
                                   />
                                 </div>
                               </div>
@@ -223,23 +226,8 @@ export default function Profile() {
                                     type="email"
                                     name="email"
                                     className="form-control"
-                                    value=""
-                                    required
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div className="row">
-                              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div className="form-group">
-                                  <label className="profile_details_text">
-                                    Password:
-                                  </label>
-                                  <input
-                                    type="password"
-                                    name="password"
-                                    className="form-control"
-                                    value=""
+                                    value={admin?.email}
+                                    style={{ pointerEvents: "none" }}
                                     required
                                   />
                                 </div>
@@ -848,7 +836,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -896,7 +884,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -944,7 +932,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -992,7 +980,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -1040,7 +1028,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -1088,7 +1076,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -1136,7 +1124,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -1184,7 +1172,7 @@ export default function Profile() {
                                         height="48"
                                         rx="12.1951"
                                         fill="#0DB254"
-                                        fill-opacity="0.07"
+                                        fillOpacity="0.07"
                                       />
                                       <path
                                         d="M30.6427 26.4367C30.6427 26.8006 30.1821 27.123 29.4861 27.3031C29.1057 27.4062 28.6515 27.4641 28.1654 27.4641C27.682 27.4641 27.2278 27.4062 26.8479 27.3031C26.152 27.1225 25.6914 26.8038 25.6914 26.4367C25.6914 25.8698 26.7996 25.4087 28.166 25.4087C29.5345 25.4087 30.6427 25.8693 30.6427 26.4367Z"
@@ -1226,7 +1214,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
-        <Footer />
+      <Footer />
       <Modal show={showModal} onHide={closeModal} size={"md"}>
         <div className="delete-form d-flex justify-content-center align-items-center flex-column">
           <svg
@@ -1250,8 +1238,8 @@ export default function Profile() {
                 y2="74"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#940000" />
-                <stop offset="1" stop-color="#FF0101" />
+                <stop stopColor="#940000" />
+                <stop offset="1" stopColor="#FF0101" />
               </linearGradient>
             </defs>
           </svg>

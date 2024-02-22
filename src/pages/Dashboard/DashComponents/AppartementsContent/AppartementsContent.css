@@ -29,7 +29,7 @@
 }
 @media screen and (min-width: 60em) {
   .app_cards_item {
-    width: 22.3333%;
+    width: 28.3333%;
     /* width: 30%; */
   }
   .no-flexbox .app_cards_item:nth-child(3n + 1) {
@@ -46,7 +46,7 @@
   border-radius: 50px;
   padding: 5px;
   max-height: 350px;
-  max-width: 300px;
+  max-width: 305px;
   cursor: pointer;
 }
 .app_card_image {
@@ -153,7 +153,6 @@
 }
 .edit-btn:before,
 .edit-btn:after {
-  content: "✎";
   height: 2px;
   /* background: white; */
   color: white;
@@ -254,7 +253,7 @@
 .img-thumbs-hidden {
   display: none;
 }
-.__services .checkbox__label{
+.__services .checkbox__label {
   height: 80px;
   width: 80px;
 }
@@ -344,6 +343,16 @@
   margin-bottom: 0;
 }
 
+.service_selected .checkbox__label {
+  border: 0.959px solid #0DB254 !important;
+}
+.service_selected .checkbox__label svg path{
+  fill: #0DB254;
+}
+.service_selected .checkbox__label span {
+  color: #0DB254;
+}
+
 /* COUNTER CSS  */
 ._modal_counter {
   display: flex;
@@ -355,8 +364,8 @@
   margin-bottom: 15px;
   border-radius: 60px;
   border: 1px solid #dedede;
-  background: rgba(255, 255, 255, 0.46);
-  box-shadow: -5px -3px 9.4px 0px #fff inset;
+  background: #fff;
+  box-shadow: -5px -3px 9.4px 0px #dedede inset;
 }
 ._modal_counter .minus,
 ._modal_counter .plus {
@@ -395,7 +404,6 @@
   height: 1.375em;
   flex-shrink: 0;
   overflow: visible;
-  
 }
 .__services .checkbox__icon .tick {
   stroke-dasharray: 20px;

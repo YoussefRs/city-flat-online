@@ -47,7 +47,7 @@ export const loginUser = (userData) => async (dispatch) => {
     // dispatch(login(data));
     // localStorage.setItem("loginToken", data.token);
     console.log(userData)
-    localStorage.setItem("user", JSON.stringify({...userData, role: "admin"}));
+    localStorage.setItem("user", JSON.stringify({...userData, role: "admin", phone: "+6 998 847 254", username: "admin"}));
     dispatch(loginSuccess());
   } catch (error) {
     console.error("Login failed", error);

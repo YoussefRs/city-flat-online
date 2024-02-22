@@ -91,6 +91,8 @@
   padding: 12px 15px;
   margin: 4px 0;
   width: 100%;
+  color: rgb(222, 194, 95);
+  font-family: "Helvetica Neue", sans-serif !important;
 }
 
 .social-container {

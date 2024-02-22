@@ -9,6 +9,7 @@ import logo from "../../assets/homepage_mats/city-flat.png";
 import { useParams, useLocation } from "react-router-dom";
 import { useModal } from "../../hooks/useModal";
 import Modal from "../../components/modals/Modal";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Details() {
   const location = useLocation();
@@ -22,7 +23,7 @@ export default function Details() {
   } = useModal();
   const { id } = useParams();
   const { card } = location.state || {};
-
+  const admin = JSON.parse(localStorage.getItem("user"));
   const [showCalendar, setShowCalendar] = useState(false);
 
   const [bookingData, setBookingData] = useState({
@@ -75,7 +76,31 @@ export default function Details() {
     servicePrices.Parking +
     servicePrices.Food +
     servicePrices.Laundry;
-    
+
+  
+  const submitBookingData = () => {
+    let bookingDataList = JSON.parse(localStorage.getItem("bookingData")) || [];
+
+    // Add a new bookingData object to the array
+    bookingDataList.push({
+      ...bookingData,
+      id: uuidv4().slice(0, 10),
+      user: admin?.username,
+      totalPrice: totalPrice,
+    });
+
+    // Store the updated array back to localStorage
+    localStorage.setItem("bookingData", JSON.stringify(bookingDataList));
+
+    // Reset the bookingData state
+    setBookingData({
+      startDate: null,
+      endDate: null,
+      nightsCount: 0,
+      services: [],
+    });
+  };
+
   return (
     <>
       <Navbar />
@@ -142,23 +167,20 @@ export default function Details() {
                         </>
                       ))}
                       <div id="multi-link" className="img-box">
-                        {card?.more?.slice(1).map((morePic, i) => (
-                          <a
-                            href={morePic?.url}
-                            className="glightbox"
-                            data-glightbox="type: image"
-                            key={i}
-                          >
-                            <img src={morePic?.url} alt="image" />
-                            <div className="transparent-box">
-                              <div className="caption">
-                                +{card?.more?.length}{" "}
-                              </div>
+                        <a
+                          href={card.more[0]?.url}
+                          className="glightbox"
+                          data-glightbox="type: image"
+                        >
+                          <img src={card.more[0]?.url} alt="image" />
+                          <div className="transparent-box">
+                            <div className="caption">
+                              +{card?.more?.length}{" "}
                             </div>
-                          </a>
-                        ))}
+                          </div>
+                        </a>
                       </div>
-                      <div
+                      {/* <div
                         id="more-img"
                         className="extra-images-container hide-element"
                       >
@@ -172,7 +194,7 @@ export default function Details() {
                             <img src={more?.url} alt="image" />
                           </a>
                         ))}
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </>
@@ -565,8 +587,8 @@ export default function Details() {
                 style={{ borderBottom: "1px solid rgba(188, 188, 188, 0.50)" }}
               >
                 <span className="_title p-0">choose your services</span>
-                <div class="btn-group d-flex align-items-center col-xs-12">
-                  <div class="select">
+                <div className="btn-group d-flex align-items-center col-xs-12">
+                  <div className="select">
                     <input
                       type="checkbox"
                       id="item_1"
@@ -574,7 +596,7 @@ export default function Details() {
                       onChange={() => handleServiceSelection("Parking")}
                     />
                     <label
-                      class="btn button_select d-flex align-items-center flex-column"
+                      className="btn button_select d-flex align-items-center flex-column"
                       for="item_1"
                     >
                       <svg
@@ -584,7 +606,7 @@ export default function Details() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clip-path="url(#clip0_189_3766)">
+                        <g clipPath="url(#clip0_189_3766)">
                           <path
                             d="M7.76363 7.11829H6.66895V9.30758H7.76363C8.36722 9.30758 8.8583 8.8165 8.8583 8.2129C8.8583 7.60931 8.36722 7.11829 7.76363 7.11829Z"
                             fill="#BCBCBC"
@@ -609,7 +631,7 @@ export default function Details() {
                     </label>
                   </div>
 
-                  <div class="select">
+                  <div className="select">
                     <input
                       type="checkbox"
                       id="item_2"
@@ -617,7 +639,7 @@ export default function Details() {
                       onChange={() => handleServiceSelection("Food")}
                     />
                     <label
-                      class="btn button_select d-flex align-items-center flex-column"
+                      className="btn button_select d-flex align-items-center flex-column"
                       for="item_2"
                     >
                       <svg
@@ -627,7 +649,7 @@ export default function Details() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clip-path="url(#clip0_43_907)">
+                        <g clipPath="url(#clip0_43_907)">
                           <path
                             d="M14.6259 27.9957L16.8503 30.2202L19.0747 27.9957H14.6259Z"
                             fill="#BCBCBC"
@@ -672,7 +694,7 @@ export default function Details() {
                     </label>
                   </div>
 
-                  <div class="select">
+                  <div className="select">
                     <input
                       type="checkbox"
                       id="item_3"
@@ -680,7 +702,7 @@ export default function Details() {
                       onChange={() => handleServiceSelection("Laundry")}
                     />
                     <label
-                      class="btn button_select d-flex align-items-center flex-column"
+                      className="btn button_select d-flex align-items-center flex-column"
                       for="item_3"
                     >
                       <svg
@@ -1183,7 +1205,7 @@ export default function Details() {
                     <p className="_medium_title">{totalPrice} €</p>
                   </div>
                   <div className="square" id="_right_box_button">
-                    <button>rent now</button>
+                    <button onClick={submitBookingData}>rent now</button>
                   </div>
                 </div>
               </div>
@@ -1356,7 +1378,7 @@ export default function Details() {
             <p className="_medium_title">{totalPrice} €</p>
           </div>
           <div className="_mobile-box" id="_right_box_button">
-            <button>rent now</button>
+            <button onClick={submitBookingData}>rent now</button>
           </div>
         </div>
       </Modal>
