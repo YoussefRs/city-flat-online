@@ -6,11 +6,7 @@ export default function Cards({ card }) {
   console.log(card);
   return (
     <div className="material-card" href="/some-article">
-      <img
-        className="card-picture"
-        src={card.pictures[0].url}
-        alt="Apartment"
-      />
+      <img className="card-picture" src={house} alt="Apartment" />
       <div className="card-info">
         <div className="cart-title-rating">
           <h2 className="card-title">{card.apartmentName} </h2>

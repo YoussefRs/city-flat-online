@@ -7,7 +7,7 @@
 }
 
 .layer {
-  background: linear-gradient(
+  /* background: linear-gradient(
       360deg,
       #0d0d0d 0.72%,
       rgba(13, 13, 13, 0.72) 30%,
@@ -18,7 +18,7 @@
       #0d0d0d 14.72%,
       rgba(13, 13, 13, 0.72) 30%,
       rgba(13, 13, 13, 0) 45.41%
-    );
+    ); */
   position: absolute;
   top: 0;
   left: 0;
@@ -267,10 +267,11 @@
   /* height: 100%; */
   width: 100vw;
   background: url("../../assets/homepage_mats/Group_42.jpg");
+  background: #1a1b1a;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
-  display: flex; /* Allow items to wrap to the next line */ /* Align items to the top of the container */
+  display: flex; 
   position: relative;
   align-items: center;
   justify-content: center;

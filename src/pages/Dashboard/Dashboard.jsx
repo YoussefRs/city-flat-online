@@ -570,7 +570,7 @@ function Dashboard() {
                 <span>Customers</span>
               </Link>
             </li>
-            <li onClick={handleHelpPage}>
+            {/* <li onClick={handleHelpPage}>
               <Link to="help" className={activeIndex === 4 ? "active" : ""}>
                 <svg
                   width="19"
@@ -598,7 +598,7 @@ function Dashboard() {
                 </svg>
                 <span>help</span>
               </Link>
-            </li>
+            </li> */}
             <li onClick={() => handleClick(5)}>
               <Link
                 to="invoice"
@@ -641,9 +641,9 @@ function Dashboard() {
           {activeIndex === 1 && <BookingsContent />}
           {activeIndex === 2 && <AppartementsContent />}
           {activeIndex === 3 && <CustomersContent set />}
-          {activeIndex === 4 && (
+          {/* {activeIndex === 4 && (
             <HelpContent showModal={showModal} closeModal={closeModal} />
-          )}
+          )} */}
           {activeIndex === 5 && <InvoiceContent />}
         </div>
       </div>

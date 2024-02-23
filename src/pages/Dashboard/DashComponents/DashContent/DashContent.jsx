@@ -187,7 +187,7 @@ export default function DashContent() {
             </div>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col-lg-12 mb-4">
             <div className="row">
               <div className="col-lg-6 mb-4">
@@ -208,7 +208,7 @@ export default function DashContent() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

@@ -146,10 +146,10 @@ export default function Home() {
           </div>
         </div>
         {apartmentList && (
-          <div className="_cards_container">
+          <div className="_cards_container" id="properties">
             <div className="cards_layer"></div>
             <div className="card_ctr">
-              {apartmentList.map((card, i) => (
+              {apartmentList?.map((card, i) => (
                 <Link key={i} to={`/details/${card.id}`} state={{ card }}>
                   <Cards card={card} />
                 </Link>
@@ -246,7 +246,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div className="_testimonial_container">
+        <div className="_testimonial_container" id="testimonails">
           <p>testimonials</p>
           <div className="testo_ctr">
             <TestimonialsSlider />
@@ -262,7 +262,7 @@ export default function Home() {
             </div>
           </div>
         </section> */}
-        <div className="_socials_container">
+        <div className="_socials_container" id="followus">
           <div className="socials_ctr">
             <div className="join_flower_ctr">
               <div className="join_ctr">
@@ -392,7 +392,7 @@ export default function Home() {
             </div> */}
           </div>
         </div>
-        <div className="_contact_ctr">
+        <div className="_contact_ctr" id="contact_us">
           <div className="_contact_box">
             <span>Contact Us</span>
             <div className="contact_inputs">

@@ -98,7 +98,7 @@ export default function Navbar() {
                   />
                 </svg>
               </a>
-              <a href="#" onClick={() => handleItemClick(1)}>
+              <a href="#properties" onClick={() => handleItemClick(1)}>
                 <svg
                   width="40"
                   height="44"
@@ -145,7 +145,7 @@ export default function Navbar() {
                   />
                 </svg>
               </a>
-              <a href="#" onClick={() => handleItemClick(2)}>
+              <a href="#followus" onClick={() => handleItemClick(2)}>
                 <svg
                   width="40"
                   height="44"
@@ -192,7 +192,7 @@ export default function Navbar() {
                   />
                 </svg>
               </a>
-              <a href="#" onClick={() => handleItemClick(3)}>
+              <a href="#testimonails" onClick={() => handleItemClick(3)}>
                 <svg
                   width="40"
                   height="44"
@@ -239,7 +239,7 @@ export default function Navbar() {
                   />
                 </svg>
               </a>
-              <a href="#" onClick={() => handleItemClick(4)}>
+              <a href="#contact_us" onClick={() => handleItemClick(4)}>
                 <svg
                   width="40"
                   height="44"
@@ -538,8 +538,9 @@ export default function Navbar() {
                   <ul>
                     <li>
                       <a
-                        onClick={() => handleItemClick(1)}
+                        onClick={() => {handleItemClick(1); setIsActive(!isActive);}}
                         className="d-flex flex-row justify-content-center"
+                        href="/"
                       >
                         {activeIndex === 1 && (
                           <img src={loader} id="selector_" alt="selector" />
@@ -549,8 +550,9 @@ export default function Navbar() {
                     </li>
                     <li>
                       <a
-                        onClick={() => handleItemClick(2)}
+                        onClick={() => {handleItemClick(2); setIsActive(!isActive);} }
                         className="d-flex flex-row justify-content-center"
+                        href="#properties"
                       >
                         {activeIndex === 2 && (
                           <img src={loader} id="selector_" alt="selector" />
@@ -560,8 +562,10 @@ export default function Navbar() {
                     </li>
                     <li>
                       <a
-                        onClick={() => handleItemClick(3)}
+                        onClick={() => {handleItemClick(3);
+                        setIsActive(!isActive);}}
                         className="d-flex flex-row justify-content-center"
+                        href="#followus"
                       >
                         {activeIndex === 3 && (
                           <img src={loader} id="selector_" alt="selector" />
@@ -571,8 +575,10 @@ export default function Navbar() {
                     </li>
                     <li>
                       <a
-                        onClick={() => handleItemClick(4)}
+                        onClick={() => {handleItemClick(4);
+                        setIsActive(!isActive);}}
                         className="d-flex flex-row justify-content-center"
+                        href="#testimonails"
                       >
                         {activeIndex === 4 && (
                           <img src={loader} id="selector_" alt="selector" />
@@ -582,8 +588,11 @@ export default function Navbar() {
                     </li>
                     <li>
                       <a
-                        onClick={() => handleItemClick(5)}
+                        onClick={() => {
+                          setIsActive(!isActive);
+                        }}
                         className="d-flex flex-row justify-content-center"
+                        href="#contactus"
                       >
                         {activeIndex === 5 && (
                           <img src={loader} id="selector_" alt="selector" />

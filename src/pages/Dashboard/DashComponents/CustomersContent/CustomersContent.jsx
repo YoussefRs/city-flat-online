@@ -9,7 +9,7 @@ export default function CustomersContent() {
   return (
     <>
       <div className="container-fluid py-4">
-        <h1 className="h3 mb-0 text-start">Customers (0)</h1>
+        <h1 className="h3 mb-0 text-start">Customers</h1>
       </div>
       <div className="row">
         <div className="col-lg-12 mb-4">

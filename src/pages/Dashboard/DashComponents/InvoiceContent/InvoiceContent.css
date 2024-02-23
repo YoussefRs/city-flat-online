@@ -30,3 +30,58 @@
   padding: 18px 15px;
   cursor: pointer;
 }
+.invoice_modal h1 {
+  color: #1a1b1a;
+  font-family: Montserrat, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.invoice_modal p {
+  color: #1a1b1a;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.invoice_modal p span{
+  color: #1a1b1a;
+  font-family: Montserrat, sans-serif;
+ font-size: 13px;
+font-style: normal;
+font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.invoice_table .table__header tr {
+ border-radius: 60px;
+  background: #fff !important;
+  margin-bottom: 2px;
+  color: #000;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  text-align: left;
+}
+.invoice_table__body tr {
+  border-radius: 60px;
+  background: #fff;
+  margin-bottom: 2px;
+  color: #000;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  text-align: left;
+}

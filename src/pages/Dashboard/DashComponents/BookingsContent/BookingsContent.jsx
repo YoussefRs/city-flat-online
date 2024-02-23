@@ -6,7 +6,7 @@ export default function BookingsContent() {
   return (
     <>
       <div className="container-fluid py-4">
-        <h1 className="h3 mb-0 text-start">Bookings ({storedApartments?.length}) </h1>
+        <h1 className="h3 mb-0 text-start">Bookings ({storedApartments?.length || 0}) </h1>
       </div>
       <div className="row">
         <div className="col-lg-12 mb-4">

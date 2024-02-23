@@ -3,12 +3,10 @@ import "./AppartementsContent.css";
 import Modal from "../../../../components/modals/Modal";
 import { useModal } from "../../../../hooks/useModal";
 import { v4 as uuidv4 } from "uuid";
+import building from "../../../../assets/homepage_mats/vue-du-modele-maison-3d.png"
 
 export default function AppartementsContent() {
-  const { showModal, openModal, closeModal } = useModal();
-  const [apartmentList, setApartmentList] = useState([]);
-  const storedApartments = JSON.parse(localStorage.getItem("apartmentList"));
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     apartmentName: "",
     price: "",
     startDate: "",
@@ -18,31 +16,21 @@ export default function AppartementsContent() {
     more: [],
     bedroom: 0,
     bathroom: 0,
-    parking: "",
-    food: "",
-    laundry: "",
+    parking: false,
+    food: false,
+    laundry: false,
     pictures: [],
     description: "",
-  });
+  };
+
+  const { showModal, openModal, closeModal } = useModal();
+  const [apartmentList, setApartmentList] = useState([]);
+  const storedApartments = JSON.parse(localStorage.getItem("apartmentList")) || [];
+  const [formData, setFormData] = useState(initialFormData);
 
   useEffect(() => {
     if (!showModal) {
-      setFormData({
-        apartmentName: "",
-        price: "",
-        startDate: "",
-        endDate: "",
-        newPrice: "",
-        location: "",
-        more: [],
-        bedroom: 0,
-        bathroom: 0,
-        parking: "",
-        food: "",
-        laundry: "",
-        pictures: [],
-        description: "",
-      });
+      setFormData(initialFormData);
     }
   }, [showModal]);
 
@@ -73,31 +61,22 @@ export default function AppartementsContent() {
       newPictures.push({ id, url: base64Image });
     }
 
-    let updatedPictures = {};
-
-    if (formData.pictures.length + newPictures.length <= 4) {
-      updatedPictures = {
-        pictures: formData.pictures.concat(newPictures),
-      };
-    } else {
-      updatedPictures = {
-        pictures: formData.pictures.concat(
-          newPictures.slice(0, 4 - formData.pictures.length)
-        ),
-        more: formData.more
-          ? formData.more.concat(
-              newPictures.slice(4 - formData.pictures.length)
-            )
-          : newPictures.slice(4 - formData.pictures.length),
-      };
-    }
+    const maxPictures = 4;
+    const remainingPictures = maxPictures - formData.pictures.length;
+    const updatedPictures = {
+      pictures: formData.pictures.concat(
+        newPictures.slice(0, remainingPictures)
+      ),
+      more: formData.more
+        ? formData.more.concat(newPictures.slice(remainingPictures))
+        : newPictures.slice(remainingPictures),
+    };
 
     setFormData((prevFormData) => ({
       ...prevFormData,
       ...updatedPictures,
     }));
   };
-
 
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -126,23 +105,8 @@ export default function AppartementsContent() {
     ];
     setApartmentList(updatedApartmentList);
     localStorage.setItem("apartmentList", JSON.stringify(updatedApartmentList));
-    setFormData({
-      ...formData,
-      apartmentName: "",
-      price: "",
-      startDate: "",
-      endDate: "",
-      newPrice: "",
-      location: "",
-      more: [],
-      bedroom: 0,
-      bathroom: 0,
-      parking: "",
-      food: "",
-      laundry: "",
-      pictures: [],
-      description: "",
-    });
+    console.log(storedApartments)
+    setFormData(initialFormData);
     closeModal();
   };
 
@@ -196,10 +160,10 @@ export default function AppartementsContent() {
         </li>
         {apartmentList.map((app, i) => {
           return (
-            <li className="app_cards_item">
+            <li className="app_cards_item" key={i}>
               <div className="app_card">
                 <div className="app_card_image">
-                  <img src={app?.pictures[0]?.url} />
+                  <img src={building} />
                 </div>
 
                 <div className="app_card_content">
@@ -382,7 +346,7 @@ export default function AppartementsContent() {
               value={formData.apartmentName}
               onChange={handleInputChange}
               placeholder="Enter Apartment Name"
-              required
+              // required
             />
 
             <div className="row">
@@ -395,7 +359,7 @@ export default function AppartementsContent() {
                   value={formData.price}
                   onChange={handleInputChange}
                   placeholder="Price"
-                  required
+                  // required
                 />
               </div>
               <div className="col-4" style={{ paddingRight: 0 }}>
@@ -407,7 +371,7 @@ export default function AppartementsContent() {
                   value={formData.startDate}
                   onChange={handleInputChange}
                   placeholder="Start date"
-                  required
+                  // required
                 />
               </div>
               <div className="col-4" style={{ paddingRight: 0 }}>
@@ -419,7 +383,7 @@ export default function AppartementsContent() {
                   value={formData.endDate}
                   onChange={handleInputChange}
                   placeholder="End date"
-                  required
+                  // required
                 />
               </div>
             </div>
@@ -447,7 +411,7 @@ export default function AppartementsContent() {
               value={formData.location}
               onChange={handleInputChange}
               placeholder="Enter location"
-              required
+              // required
             />
 
             <div className="row">
@@ -682,7 +646,7 @@ export default function AppartementsContent() {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <label htmlFor="pictures">Pictures:</label>
               <div className="row">
                 <div className="col">
@@ -694,7 +658,7 @@ export default function AppartementsContent() {
                       className="form-control"
                       multiple
                       onChange={handleImageChange}
-                      required
+                      // required
                     />
                   </div>
                   <div
@@ -721,7 +685,7 @@ export default function AppartementsContent() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <label>Description</label>
@@ -732,7 +696,7 @@ export default function AppartementsContent() {
                 value={formData.description}
                 onChange={handleInputChange}
                 placeholder="Enter description"
-                required
+                // required
               ></textarea>
             </div>
 
