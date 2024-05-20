@@ -5,7 +5,7 @@ import logo from "../../assets/homepage_mats/logo.png";
 
 export default function Footer() {
   return (
-    <section className="_footer">
+    <section className="_footer py-5">
       <div className="_footer_items">
         <div className="_footer_items_wrapper">
           <div className="_item_1">
@@ -14,33 +14,31 @@ export default function Footer() {
               <img src={name} />
             </div>
             <p>
-              simply dummy text of the printing and typesetting industry. Lorem
-              Ipsum has been the industry's standard dummy text ever since the
-              1500s, when an unknown printer took a galley of type and scrambled
-              it to make a type specimen book. It has survived not only five
-              centuries,
+              Entdecken Sie gemütliche Apartments in Mönchengladbach,
+              Nordrhein-Westfalen, Deutschland. Buchen Sie noch heute Ihren
+              Aufenthalt!
             </p>
           </div>
           <div className="_item_2">
             <ul>
-              Company
-              <li>about us</li>
-              <li>why choose us</li>
-              <li>pricing</li>
-              <li>testimonials</li>
+              Firma
+              <li>Über uns</li>
+              <li>Preise</li>
+              <li>Referenzen</li>
             </ul>
           </div>
           <div className="_item_3">
             <ul>
-              Resources
-              <li>privacy policy</li>
-              <li>term & conditions</li>
-              <li>contact us</li>
+              Ressourcen
+              <li>AGB</li>
+              <li>Datenschutzrichtlinie</li>
+              <li>Widerrufsrecht</li>
+              <li>Impressum</li>
             </ul>
           </div>
         </div>
         <div className="footer_rights">
-          <p>© 2024 All Rights Reserved.</p>
+          <p>© 2024 Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </section>

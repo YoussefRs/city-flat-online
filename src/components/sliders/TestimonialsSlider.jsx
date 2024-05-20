@@ -4,48 +4,32 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import "./TestimonialsSlider.css";
+import ep from "../../assets/homepage_mats/epingle _1.png";
+import ep2 from "../../assets/homepage_mats/epingle_3.png";
+import ep3 from "../../assets/homepage_mats/epingle_2.png";
 
 export default function TestimonialsSlider() {
+  const testimonials = [
+    {
+      name: "EMILIANO AQUILANI",
+      content:
+        "Die Apartments waren unglaublich! Sie waren geräumig, sauber und hatten eine fantastische Lage. Ich werde auf jeden Fall wiederkommen!",
+      image: ep3,
+    },
+    {
+      name: "ANNA ITURBE",
+      content:
+        "Unser Aufenthalt in den Apartments war einfach perfekt! Die Einrichtung war stilvoll, und die Ausstattung ließ keine Wünsche offen. Ich kann sie nur weiterempfehlen!",
+      image: ep2,
+    },
+    {
+      name: "LARA ATKINSON",
+      content:
+        "Wir haben unseren Aufenthalt in diesen Apartments sehr genossen. Sie waren gemütlich eingerichtet und boten alles, was wir für einen angenehmen Aufenthalt brauchten. Wir kommen gerne wieder!",
+      image: ep3,
+    },
+  ];
 
-   const testimonials = [
-     {
-       name: "EMILIANO AQUILANI",
-       content:
-         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi obcaecati cumque voluptates perspiciatis, totam quae? Illo, facilis cumque deserunt velit placeat ipsa eos numquam modi adipisci est dolore illum voluptatibus?",
-       image:
-         "http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg",
-     },
-     {
-       name: "ANNA ITURBE",
-       content:
-         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi obcaecati cumque voluptates perspiciatis, totam quae? Illo, facilis cumque deserunt velit placeat ipsa eos numquam modi adipisci est dolore illum voluptatibus?",
-       image:
-         "http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg",
-     },
-     {
-       name: "LARA ATKINSON",
-       content:
-         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi obcaecati cumque voluptates perspiciatis, totam quae? Illo, facilis cumque deserunt velit placeat ipsa eos numquam modi adipisci est dolore illum voluptatibus?",
-       image:
-         "http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg",
-     },
-     {
-       name: "IAN OWEN",
-       content:
-         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi obcaecati cumque voluptates perspiciatis, totam quae? Illo, facilis cumque deserunt velit placeat ipsa eos numquam modi adipisci est dolore illum voluptatibus?",
-       image:
-         "http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg",
-     },
-     {
-       name: "MICHAEL TEDDY",
-       content:
-         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi obcaecati cumque voluptates perspiciatis, totam quae? Illo, facilis cumque deserunt velit placeat ipsa eos numquam modi adipisci est dolore illum voluptatibus?",
-       image:
-         "http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg",
-     },
-   ];
-  
-  
   return (
     <>
       {" "}
@@ -65,6 +49,9 @@ export default function TestimonialsSlider() {
       >
         {testimonials.map((testim, i) => (
           <SwiperSlide className="swiper-slide" key={i}>
+            <div className="ep-wrapper">
+              <img src={testim.image} />
+            </div>
             <div className="swiper-image">
               <div className="testimonials_rate d-flex flex-column">
                 <span>{testim.name}</span>
@@ -120,6 +107,24 @@ export default function TestimonialsSlider() {
                 </span>
               </div>
               <span className="test_description">{testim.content}</span>
+            </div>
+            <div className="svg-wrapper">
+              <svg
+                width="60"
+                height="93"
+                viewBox="0 0 93 93"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 53.1429H19.9285L6.64275 79.7142H26.5713L39.8571 53.1429V13.2858H0V53.1429Z"
+                  fill="#1A1B1A"
+                />
+                <path
+                  d="M53.1429 13.2858V53.1429H73.0715L59.7856 79.7142H79.7142L93 53.1429V13.2858H53.1429Z"
+                  fill="#1A1B1A"
+                />
+              </svg>
             </div>
           </SwiperSlide>
         ))}

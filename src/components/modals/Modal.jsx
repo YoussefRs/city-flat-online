@@ -1,9 +1,14 @@
-
 import "./Modal.css";
 import { Modal } from "react-bootstrap";
 
-const ReusableModal = ({ show, onHide, children, size }) => {
-
+const ReusableModal = ({
+  show,
+  onHide,
+  children,
+  size,
+  customClass,
+  customBackdropClass,
+}) => {
   return (
     <Modal
       size={size}
@@ -11,10 +16,10 @@ const ReusableModal = ({ show, onHide, children, size }) => {
       centered
       show={show}
       onHide={onHide}
+      className={`MyModal ${customClass ? customClass : ""}`}
+      backdropClassName={customBackdropClass && customBackdropClass}
     >
-      <Modal.Body>
-        {children}
-      </Modal.Body>
+      <Modal.Body>{children}</Modal.Body>
     </Modal>
   );
 };

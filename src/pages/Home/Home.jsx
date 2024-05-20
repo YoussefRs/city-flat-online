@@ -1,158 +1,38 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Home.css";
-import Navbar from "../../components/navbar/Navbar";
-import logo from "../../assets/homepage_mats/logo.png";
-import name from "../../assets/homepage_mats/name.png";
-import house from "../../assets/homepage_mats/Vector.png";
-import RangeSlider from "../../components/sliders/RangeSlider";
+import Logo from "../../assets/homepage_mats/Group_50.png";
 import Cards from "../../components/cards/Cards";
 import TestimonialsSlider from "../../components/sliders/TestimonialsSlider";
 import Footer from "../../components/footer/Footer";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { apartmentList } from "../../Dummy/AppData";
 
 export default function Home() {
-  const [apartmentList, setApartmentList] = useState([]);
-  useEffect(() => {
-    const storedApartments = JSON.parse(localStorage.getItem("apartmentList"));
-    if (storedApartments) {
-      setApartmentList(storedApartments);
-    }
-  }, []);
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <div className="home_container"> */}
       <div className="_home">
-        <div className="wrapper">
-          <div className="wrapper_ctr">
-            <div className="layer"></div>
-            <div className="_home_content">
-              <div className="_home_img">
-                <img src={logo} />
-                <img src={name} />
-              </div>
-              <div className="_home_text">
-                <h1>Town lofts</h1>
-                <span>
-                  am{" "}
-                  <svg
-                    width="476"
-                    height="46"
-                    viewBox="0 0 476 46"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g clipPath="url(#clip0_20_12)">
-                      <path
-                        d="M16.283 46H0.337402V0H7.93872C9.08177 0 10.2248 0 11.425 0C12.6252 0 13.7683 0.109524 14.8542 0.164286C15.9401 0.219048 16.9117 0.328571 17.8261 0.438095C18.7406 0.547619 19.3693 0.657143 19.8836 0.821429C22.7413 1.5881 25.0274 2.95714 26.7991 4.92857C28.5709 6.79048 29.4282 9.14524 29.4282 11.9381C29.4282 13.6357 28.9709 15.2238 28.1136 16.6476C27.4278 18.0714 26.2276 19.4405 24.513 20.7C30.0568 23.219 32.8002 27.1619 32.8002 32.4738C32.8002 35.2119 32.1143 37.5667 30.7427 39.5381C29.1995 41.6738 27.4278 43.3167 25.3703 44.4667C23.1413 45.4524 20.0551 46 16.2259 46H16.283ZM13.8255 18.181C15.9973 18.181 17.7118 17.6881 18.9692 16.7024C19.998 15.7714 20.5123 14.5667 20.5123 13.0333C20.5123 11.5 19.998 10.35 18.9692 9.63809C17.8833 8.7619 16.3402 8.37857 14.2827 8.37857H9.48185V18.181H13.8255ZM14.0541 37.6214C17.8833 37.6214 20.4552 37.1833 21.884 36.3619C23.2557 35.3762 23.9415 34.0071 23.9415 32.3095C23.9415 30.3929 23.1985 28.8595 21.7125 27.6C20.0551 26.45 17.4832 25.9024 13.8826 25.9024H9.539V37.6214H14.1112H14.0541Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M59.3762 46C52.575 46 46.8598 43.7548 42.2875 39.2643C37.7153 34.6095 35.4292 29.2429 35.4292 23.1095C35.4292 18.7833 36.5151 14.8952 38.6298 11.4452C40.6873 7.94048 43.602 5.14762 47.317 3.06667C51.0319 0.985714 55.0326 0 59.3191 0C65.7202 0 71.264 2.24524 75.9505 6.73571C80.6942 11.3357 83.0374 16.7571 83.0374 23.1095C83.0374 29.4619 80.7513 35.0476 76.1791 39.4286C71.5497 43.8095 65.9488 46 59.3191 46H59.3762ZM59.3762 38.0595C61.4337 38.0595 63.2626 37.6762 65.0343 36.9643C66.8061 36.2524 68.3492 35.1571 69.8352 33.7333C72.8071 30.9405 74.2931 27.4357 74.2931 23.1095C74.2931 18.7833 72.8071 15.4429 69.8352 12.431C66.9775 9.58333 63.434 8.10476 59.1476 8.10476C54.8611 8.10476 51.2605 9.52857 48.5172 12.431C45.6595 15.169 44.2307 18.7286 44.2307 23.1095C44.2307 27.9833 46.0596 31.8714 49.7745 34.7738C52.575 36.9643 55.7756 38.0595 59.3762 38.0595Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M122.187 46H112.357L103.612 30.2833H98.2972V46H89.0956V0H106.699C110.985 0 114.643 1.42381 117.672 4.32619C120.701 7.22857 122.187 10.7333 122.187 14.8405V15.2786C122.187 21.5214 119.044 26.0667 112.814 29.0238L122.187 46ZM105.784 21.6857C107.613 21.6857 109.213 21.0286 110.528 19.7143C111.842 18.4548 112.528 16.8667 112.528 15.0048C112.528 13.1429 111.842 11.6643 110.528 10.4595C109.213 9.2 107.613 8.59762 105.784 8.59762H98.24V21.7405H105.784V21.6857Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M152.764 0H161.68V29.1881C161.68 31.5429 161.222 33.7333 160.308 35.7595C159.393 37.7857 158.136 39.5929 156.536 41.1262C154.936 42.6595 153.05 43.8643 150.935 44.7405C148.82 45.6167 146.534 46.0548 144.077 46.0548C141.619 46.0548 139.333 45.6167 137.218 44.7405C135.104 43.8643 133.218 42.6595 131.617 41.1262C130.017 39.5929 128.76 37.8405 127.845 35.7595C126.931 33.6786 126.474 31.5429 126.474 29.1881V0H135.389V29.3524C135.389 30.5024 135.618 31.5976 136.075 32.5833C136.532 33.569 137.161 34.4452 137.961 35.2119C138.761 35.9786 139.676 36.5262 140.705 36.9643C141.733 37.4024 142.876 37.6214 144.077 37.6214C145.277 37.6214 146.42 37.4024 147.449 36.9643C148.477 36.5262 149.392 35.9238 150.192 35.2119C150.992 34.5 151.621 33.569 152.078 32.5833C152.535 31.5976 152.764 30.5024 152.764 29.3524V0Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M180.769 46C174.368 46 169.452 42.8238 166.08 36.4167L173.567 32.1452C175.739 36.0881 178.254 38.0595 180.997 38.0595C182.426 38.0595 183.741 37.6762 184.827 36.8548C185.798 35.9786 186.313 35.0476 186.313 34.0071C186.313 32.9667 185.97 31.981 185.284 30.9405C184.827 30.4476 184.198 29.8452 183.341 29.0786C182.483 28.3119 181.455 27.4357 180.14 26.45C177.682 24.4786 175.682 22.781 174.082 21.3024C172.482 19.8238 171.339 18.5643 170.596 17.5238C169.052 15.3881 168.252 13.3071 168.252 11.2262C168.252 8.15952 169.452 5.53095 171.853 3.28571C174.368 1.09524 177.34 0 180.769 0C183.112 0 185.341 0.547619 187.341 1.64286C188.37 2.13571 189.456 2.84762 190.599 3.77857C191.742 4.70952 192.885 5.80476 194.142 7.17381L187.57 12.65C185.341 9.69286 183.112 8.21429 180.769 8.21429C179.454 8.21429 178.54 8.4881 178.025 9.03571C177.34 9.58333 176.939 10.2405 176.939 11.1167C176.939 11.7738 177.168 12.431 177.568 13.0881C177.968 13.5262 178.711 14.1833 179.797 15.1143C180.883 16.0452 182.255 17.1952 183.969 18.619C185.97 20.2071 187.513 21.5214 188.541 22.4524C189.227 23.0548 189.742 23.4929 190.085 23.7119C193.228 26.6143 194.771 29.9 194.771 33.6786C194.771 37.4571 193.514 40.3595 190.942 42.6595C188.37 44.9595 184.998 46.1095 180.769 46.1095V46Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M215.117 46C208.716 46 203.801 42.8238 200.429 36.4167L207.916 32.1452C210.088 36.0881 212.603 38.0595 215.346 38.0595C216.775 38.0595 218.089 37.6762 219.175 36.8548C220.147 35.9786 220.661 35.0476 220.661 34.0071C220.661 32.9667 220.318 31.981 219.632 30.9405C219.175 30.4476 218.547 29.8452 217.689 29.0786C216.832 28.3119 215.803 27.4357 214.489 26.45C212.031 24.4786 210.031 22.781 208.431 21.3024C206.83 19.8238 205.687 18.5643 204.944 17.5238C203.401 15.3881 202.601 13.3071 202.601 11.2262C202.601 8.15952 203.801 5.53095 206.202 3.28571C208.716 1.09524 211.688 0 215.117 0C217.461 0 219.69 0.547619 221.69 1.64286C222.719 2.13571 223.805 2.84762 224.948 3.77857C226.091 4.70952 227.234 5.80476 228.491 7.17381L221.919 12.65C219.69 9.69286 217.461 8.21429 215.117 8.21429C213.803 8.21429 212.888 8.4881 212.374 9.03571C211.688 9.58333 211.288 10.2405 211.288 11.1167C211.288 11.7738 211.517 12.431 211.917 13.0881C212.317 13.5262 213.06 14.1833 214.146 15.1143C215.232 16.0452 216.603 17.1952 218.318 18.619C220.318 20.2071 221.861 21.5214 222.89 22.4524C223.576 23.0548 224.09 23.4929 224.433 23.7119C227.577 26.6143 229.12 29.9 229.12 33.6786C229.12 37.4571 227.862 40.3595 225.291 42.6595C222.719 44.9595 219.347 46.1095 215.117 46.1095V46Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M234.835 0H243.751V46H234.835V0Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M277.928 0L278.157 0.657143L273.47 12.2667L266.955 28.0929H279.929L276.842 20.5905L281.529 8.98095L296.503 46H286.844L283.301 36.581H263.64L259.639 46H250.266L268.784 0H277.986H277.928Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M331.252 46H322.05V0H339.653C343.94 0 347.54 1.42381 350.627 4.32619C353.713 7.22857 355.256 10.7333 355.256 14.7857V15.3881C355.256 19.4405 353.713 22.9452 350.627 25.8476C347.54 28.6952 343.94 30.1738 339.653 30.1738H331.252V46ZM338.739 21.5762C340.682 21.5762 342.225 20.9738 343.483 19.769C344.74 18.5643 345.369 17.031 345.369 15.2238C345.369 13.4167 344.74 11.8286 343.483 10.5143C342.225 9.25476 340.625 8.59762 338.739 8.59762H331.252V21.631H338.739V21.5762Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M378.689 0L378.917 0.657143L374.231 12.2667L367.715 28.0929H380.689L377.603 20.5905L382.289 8.98095L397.263 46H387.604L384.061 36.581H364.4L360.4 46H351.027L369.544 0H378.746H378.689Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M435.842 46H426.011L417.267 30.2833H411.952V46H402.75V0H420.353C424.64 0 428.297 1.42381 431.326 4.32619C434.356 7.22857 435.842 10.7333 435.842 14.8405V15.2786C435.842 21.5214 432.698 26.0667 426.468 29.0238L435.842 46ZM419.439 21.6857C421.268 21.6857 422.868 21.0286 424.182 19.7143C425.497 18.4548 426.183 16.8667 426.183 15.0048C426.183 13.1429 425.497 11.6643 424.182 10.4595C422.868 9.2 421.268 8.59762 419.439 8.59762H411.894V21.7405H419.439V21.6857Z"
-                        fill="#F7D86A"
-                      />
-                      <path
-                        d="M474.991 0L458.474 23.1095L474.991 46H464.075L449.329 25.4643V46H440.185V0H449.329V20.5905L464.075 0H474.991Z"
-                        fill="#F7D86A"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_20_12">
-                        <rect width="476" height="46" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-              <div className="_price_wrapper">
-                <div className="price">
-                  <input placeholder="search..." />
-                  <div className="price_range">
-                    <span>Price Range</span>
-                    <RangeSlider
-                      min={0}
-                      max={1000}
-                      onChange={({ min, max }) =>
-                        console.log(`min = ${min}, max = ${max}`)
-                      }
-                    />
-                  </div>
-                  <div className="_counter">
-                    <span>Rooms</span>
-                    <div className="_counter_btns">
-                      <button>+</button>
-                      <span>0</span>
-                      <button>-</button>
-                    </div>
-                  </div>
-                  <div className="_filter">
-                    <svg
-                      width="39"
-                      height="39"
-                      viewBox="0 0 39 39"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M16.4863 28.0312C16.9684 26.8402 18.1361 26 19.5 26C20.8639 26 22.0316 26.8402 22.5137 28.0312H34.125C34.7981 28.0312 35.3438 28.5769 35.3438 29.25C35.3438 29.9231 34.7981 30.4688 34.125 30.4688H22.5137C22.0316 31.6598 20.8639 32.5 19.5 32.5C18.1361 32.5 16.9684 31.6598 16.4863 30.4688H4.875C4.20193 30.4688 3.65625 29.9231 3.65625 29.25C3.65625 28.5769 4.20193 28.0312 4.875 28.0312H16.4863ZM35.3438 19.5C35.3438 20.1731 34.7981 20.7188 34.125 20.7188H17.875C17.2019 20.7188 16.6562 20.1731 16.6562 19.5C16.6562 18.8269 17.2019 18.2812 17.875 18.2812H34.125C34.7981 18.2812 35.3438 18.8269 35.3438 19.5ZM11.375 22.75C10.0111 22.75 8.84341 21.9099 8.36127 20.7188H4.875C4.20193 20.7188 3.65625 20.1731 3.65625 19.5C3.65625 18.8269 4.20193 18.2812 4.875 18.2812H8.36127C8.84341 17.0901 10.0111 16.25 11.375 16.25C13.17 16.25 14.625 17.705 14.625 19.5C14.625 21.295 13.17 22.75 11.375 22.75ZM19.5 10.9688C20.1731 10.9688 20.7188 10.4231 20.7188 9.75C20.7188 9.07693 20.1731 8.53125 19.5 8.53125H6.5C5.82693 8.53125 5.28125 9.07693 5.28125 9.75C5.28125 10.4231 5.82693 10.9688 6.5 10.9688H19.5ZM35.3438 9.75C35.3438 10.4231 34.7981 10.9688 34.125 10.9688H29.0138C28.5316 12.1599 27.3639 13 26 13C24.2051 13 22.75 11.545 22.75 9.75C22.75 7.95502 24.2051 6.5 26 6.5C27.3639 6.5 28.5316 7.34012 29.0138 8.53125H34.125C34.7981 8.53125 35.3438 9.07693 35.3438 9.75Z"
-                        fill="white"
-                        fillOpacity="0.73"
-                      />
-                    </svg>
-                    <span>FILTER</span>
-                  </div>
-                </div>
-              </div>
+        <section className="landingpage" id="home">
+          <div className="container d-flex align-items-center mb-5">
+            <div className="lp-alignment">
+              <img
+                src={Logo}
+                srcSet={`${Logo} 1x, ${Logo} 2x, ${Logo} 3x`}
+                alt="Logo"
+              />
+              <h1 className="_title_">Town Lofts</h1>
+              <span className="_title_small_">
+                am <span className="special_span">borussia park</span>
+              </span>
             </div>
           </div>
-        </div>
+        </section>
+
         {apartmentList && (
           <div className="_cards_container" id="properties">
             <div className="cards_layer"></div>
+            <p className="title">Unsere Wohnungen</p>
             <div className="card_ctr">
               {apartmentList?.map((card, i) => (
-                <Link key={i} to={`/details/${card.id}`} state={{ card }}>
-                  <Cards card={card} />
-                </Link>
+                <Cards card={card} key={i} type={"normal"} />
               ))}
             </div>
           </div>
@@ -164,18 +44,18 @@ export default function Home() {
                 <div className="floating_boxes">
                   <div className="guy_box">
                     <img
-                      class="img-circle"
+                      className="img-circle"
                       src="http://themes.audemedia.com/html/goodgrowth/images/testimonial3.jpg"
                       alt=""
                     />
                     <p>
-                      Indulge In the luxury of living in this stunning home that
-                      combines elegance
+                      Tauchen Sie ein in den Luxus des Lebens in diesem
+                      prächtigen Anwesen, das Eleganz nahtlos vereint.
                     </p>
                   </div>
                   <div className="girl_box">
                     <img src="https://i.ibb.co/8x9xK4H/team.jpg" alt="" />
-                    <p>hello i want to rent</p>
+                    <p>Hallo! Ich möchte mieten.</p>
                   </div>
                 </div>
               </div>
@@ -184,105 +64,325 @@ export default function Home() {
               <div className="_content">
                 <div className="search_title">
                   <h1>
-                    Just Click, <span>Big Move</span> !
+                    Reservieren <span>und relaxen</span> !
                   </h1>
                 </div>
                 <div className="search_description">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Quibusdam quod, aliquid repudiandae vero cumque eligendi
-                    modi iusto ut delectus distinctio reiciendis autem quia,
-                    accusamus, minus aspernatur rerum sunt a maxime.
+                    Willkommen in unseren charmanten Apartments im Herzen von
+                    Mönchengladbach, Nordrhein-Westfalen, Deutschland. Mit
+                    modernen Annehmlichkeiten und einer gemütlichen Atmosphäre
+                    bieten unsere Unterkünfte den perfekten Rückzugsort für
+                    Ihren Aufenthalt. Dank der günstigen Lage in der Nähe von
+                    Sehenswürdigkeiten und öffentlichen Verkehrsmitteln bieten
+                    unsere Apartments einfachen Zugang zu allem, was die Stadt
+                    zu bieten hat. Buchen Sie Ihren Aufenthalt bei uns und
+                    erleben Sie Komfort, Bequemlichkeit und Gastfreundschaft wie
+                    nie zuvor.
                   </p>
                 </div>
-                <div className="search_boxes">
-                  <div className="_box">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="78"
-                      height="55"
-                      fill="#07D25F"
-                      class="bi bi-house-door-fill"
-                      viewBox="0 0 20 16"
-                      stroke="white"
-                    >
-                      <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
-                    </svg>
-                    <p>Searching For House</p>
-                  </div>
-                  <div className="_box">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="78"
-                      height="55"
-                      fill="#07D25F"
-                      class="bi bi-person-plus-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
-                      <path
-                        fill-rule="evenodd"
-                        d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5"
-                      />
-                    </svg>
-                    <p>Searching For House</p>
-                  </div>
-                  <div className="_box">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="78"
-                      height="55"
-                      fill="#07D25F"
-                      class="bi bi-credit-card-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1H0zm0 3v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7zm3 2h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1" />
-                    </svg>
+                {/* <div className="search_boxes">
+                  <div className="_box" title="Searching for houses">
+                    <div className="icon">
+                      <svg
+                        viewBox="0 0 79 92"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g filter="url(#filter0_d_1_204)">
+                          <path
+                            d="M56.9263 38.2476V51H46.0737V38.2476C46.0737 36.7982 46.6454 35.408 47.663 34.3831C48.6807 33.3582 50.0609 32.7824 51.5 32.7824C52.9391 32.7824 54.3193 33.3582 55.337 34.3831C56.3546 35.408 56.9263 36.7982 56.9263 38.2476ZM74.2 14.8744L52.4948 0.300291C52.1995 0.104401 51.8536 0 51.5 0C51.1464 0 50.8005 0.104401 50.5052 0.300291L28.8 14.8744C28.4792 15.0915 28.2359 15.4063 28.1057 15.7728C27.9755 16.1393 27.9653 16.5381 28.0765 16.9109C28.1878 17.2836 28.4146 17.6107 28.7238 17.8442C29.033 18.0776 29.4084 18.2052 29.7948 18.2082H31.6036V45.5347C31.6036 46.9842 32.1753 48.3743 33.1929 49.3993C34.2105 50.4242 35.5907 51 37.0299 51H42.4562V38.2476C42.4562 35.8318 43.409 33.515 45.105 31.8067C46.8011 30.0985 49.1014 29.1388 51.5 29.1388C53.8986 29.1388 56.1989 30.0985 57.895 31.8067C59.591 33.515 60.5438 35.8318 60.5438 38.2476V51H65.9701C67.4093 51 68.7895 50.4242 69.8071 49.3993C70.8247 48.3743 71.3964 46.9842 71.3964 45.5347V18.2082H73.2052C73.5916 18.2052 73.967 18.0776 74.2762 17.8442C74.5854 17.6107 74.8122 17.2836 74.9235 16.9109C75.0347 16.5381 75.0245 16.1393 74.8943 15.7728C74.7641 15.4063 74.5208 15.0915 74.2 14.8744Z"
+                            fill="url(#paint0_linear_1_204)"
+                          />
+                        </g>
+                        <defs>
+                          <filter
+                            id="filter0_d_1_204"
+                            x="0.6"
+                            y={0}
+                            width="77.8"
+                            height="91.4"
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                          >
+                            <feFlood
+                              floodOpacity={0}
+                              result="BackgroundImageFix"
+                            />
+                            <feColorMatrix
+                              in="SourceAlpha"
+                              type="matrix"
+                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                              result="hardAlpha"
+                            />
+                            <feOffset dx={-12} dy={25} />
+                            <feGaussianBlur stdDeviation="7.7" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix
+                              type="matrix"
+                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in2="BackgroundImageFix"
+                              result="effect1_dropShadow_1_204"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in="SourceGraphic"
+                              in2="effect1_dropShadow_1_204"
+                              result="shape"
+                            />
+                          </filter>
+                          <linearGradient
+                            id="paint0_linear_1_204"
+                            x1="66.2823"
+                            y1="39.8049"
+                            x2="35.3096"
+                            y2="11.4916"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stopColor="#07D25F" />
+                            <stop offset={1} stopColor="#028139" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
 
-                    <p>Searching For House</p>
+                    <p>Searching for houses</p>
                   </div>
-                </div>
+                  <div className="_box" title="Create you profile">
+                  
+                    <div className="icon">
+                      <svg
+                        viewBox="0 0 80 86"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g filter="url(#filter0_d_484_2)">
+                          <path
+                            d="M55.8681 22.9418C56.5119 21.8203 56.9377 20.6365 57.1038 19.5669C57.5711 19.5254 58.1942 18.8712 58.8588 16.5036C59.7207 13.4714 58.9211 12.8691 58.1319 12.8691C58.2046 12.6095 58.2669 12.3499 58.3188 12.1007C59.6999 3.74138 55.5877 3.45062 55.5877 3.45062C55.5877 3.45062 54.9024 2.14221 53.1059 1.14532C51.9013 0.428811 50.2295 -0.121553 48.0177 0.0653633C47.3011 0.0965159 46.6262 0.241895 45.9927 0.449579C45.1828 0.719569 44.4351 1.12455 43.7601 1.59184C42.9294 2.12144 42.1506 2.75488 41.4652 3.49215C40.3749 4.60327 39.3988 6.04667 38.9834 7.84314C38.6303 9.18271 38.7134 10.5846 39.0042 12.0903C39.0561 12.3499 39.1184 12.6095 39.1911 12.8691C38.4226 12.8899 37.6542 13.5233 38.5057 16.5036C39.1703 18.8608 39.7934 19.5254 40.2606 19.5669C40.4268 20.6365 40.8422 21.8203 41.4964 22.9418V27.1474C41.4756 27.3032 41.3925 27.4382 41.2575 27.5005C40.053 28.0924 34.1132 31.0934 28.5992 35.6209C27.5919 36.4413 27 37.677 27 38.975V42.8795C27 44.0944 27.9865 45.0809 29.2015 45.0809H57.9242C54.9751 42.6095 53.0955 38.8919 53.0955 34.7486C53.0955 31.6749 54.134 28.84 55.8681 26.5659V22.9418Z"
+                            fill="url(#paint0_linear_484_2)"
+                          />
+                        </g>
+                        <g filter="url(#filter1_d_484_2)">
+                          <path
+                            d="M66.626 24.3333C60.8939 24.3333 56.2522 28.975 56.2522 34.7071C56.2522 40.4392 60.9043 45.0809 66.626 45.0809C72.3581 45.0809 76.9999 40.4392 76.9999 34.7071C76.9999 28.975 72.3581 24.3333 66.626 24.3333ZM71.6935 36.1193H68.0383V39.7746H65.2242V36.1193H61.5689V33.3052H65.2242V29.65H68.0383V33.3052H71.6935V36.1193Z"
+                            fill="url(#paint1_linear_484_2)"
+                          />
+                        </g>
+                        <defs>
+                          <filter
+                            id="filter0_d_484_2"
+                            x={0}
+                            y="0.0285645"
+                            width="62.2312"
+                            height="85.0524"
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                          >
+                            <feFlood
+                              floodOpacity={0}
+                              result="BackgroundImageFix"
+                            />
+                            <feColorMatrix
+                              in="SourceAlpha"
+                              type="matrix"
+                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                              result="hardAlpha"
+                            />
+                            <feOffset dx={-12} dy={25} />
+                            <feGaussianBlur stdDeviation="7.5" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix
+                              type="matrix"
+                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in2="BackgroundImageFix"
+                              result="effect1_dropShadow_484_2"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in="SourceGraphic"
+                              in2="effect1_dropShadow_484_2"
+                              result="shape"
+                            />
+                          </filter>
+                          <filter
+                            id="filter1_d_484_2"
+                            x="29.2522"
+                            y="24.3333"
+                            width="50.7477"
+                            height="60.7477"
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                          >
+                            <feFlood
+                              floodOpacity={0}
+                              result="BackgroundImageFix"
+                            />
+                            <feColorMatrix
+                              in="SourceAlpha"
+                              type="matrix"
+                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                              result="hardAlpha"
+                            />
+                            <feOffset dx={-12} dy={25} />
+                            <feGaussianBlur stdDeviation="7.5" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix
+                              type="matrix"
+                              values="0 0 0 0 0.0156863 0 0 0 0 0.341176 0 0 0 0 0.972549 0 0 0 0.1 0"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in2="BackgroundImageFix"
+                              result="effect1_dropShadow_484_2"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in="SourceGraphic"
+                              in2="effect1_dropShadow_484_2"
+                              result="shape"
+                            />
+                          </filter>
+                          <linearGradient
+                            id="paint0_linear_484_2"
+                            x1="53.2528"
+                            y1="35.1914"
+                            x2="27.3221"
+                            y2="16.7898"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stopColor="#07D25F" />
+                            <stop offset={1} stopColor="#028139" />
+                          </linearGradient>
+                          <linearGradient
+                            id="paint1_linear_484_2"
+                            x1="73.1515"
+                            y1="40.5265"
+                            x2="60.5009"
+                            y2="27.978"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stopColor="#07D25F" />
+                            <stop offset={1} stopColor="#028139" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p>Create you profile</p>
+                  </div>
+                  <div className="_box" title="Deal and pay">
+
+                    <div className="icon">
+                      <svg
+                        viewBox="0 0 84 81"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <g filter="url(#filter0_d_1_216)">
+                          <path
+                            d="M75.3042 0H32.6958C29.5553 0 27 2.5351 27 5.65074V8.46719V17.2847V35.3493C27 38.4649 29.5553 41 32.6958 41H75.3042C78.4447 41 81 38.4649 81 35.3493V17.2847V8.46779V5.65134C81 2.5351 78.4447 0 75.3042 0ZM74.8761 32.6101H70.0796C69.5832 32.6101 69.1803 32.211 69.1803 31.7179C69.1803 31.2248 69.5832 30.8257 70.0796 30.8257H74.8761C75.3725 30.8257 75.7754 31.2248 75.7754 31.7179C75.7754 32.211 75.3725 32.6101 74.8761 32.6101ZM49.8942 24.1221H34.9052C34.4088 24.1221 34.0059 23.723 34.0059 23.2299C34.0059 22.7368 34.4088 22.3377 34.9052 22.3377H49.8942C50.3906 22.3377 50.7936 22.7368 50.7936 23.2299C50.7936 23.723 50.3906 24.1221 49.8942 24.1221ZM50.7936 31.7179C50.7936 32.211 50.3906 32.6101 49.8942 32.6101H45.0977C44.6013 32.6101 44.1984 32.211 44.1984 31.7179C44.1984 31.2248 44.6013 30.8257 45.0977 30.8257H49.8942C50.3906 30.8257 50.7936 31.2254 50.7936 31.7179ZM52.3926 31.7179C52.3926 31.2248 52.7955 30.8257 53.2919 30.8257H58.0884C58.5848 30.8257 58.9877 31.2248 58.9877 31.7179C58.9877 32.211 58.5848 32.6101 58.0884 32.6101H53.2919C52.7955 32.6101 52.3926 32.211 52.3926 31.7179ZM60.7864 31.7179C60.7864 31.2248 61.1893 30.8257 61.6858 30.8257H66.4823C66.9787 30.8257 67.3816 31.2248 67.3816 31.7179C67.3816 32.211 66.9787 32.6101 66.4823 32.6101H61.6858C61.1893 32.6101 60.7864 32.211 60.7864 31.7179ZM79.2013 16.3931H28.7987V9.36001H79.2013V16.3931Z"
+                            fill="url(#paint0_linear_1_216)"
+                          />
+                        </g>
+                        <defs>
+                          <filter
+                            id="filter0_d_1_216"
+                            x={0}
+                            y={0}
+                            width={84}
+                            height={81}
+                            filterUnits="userSpaceOnUse"
+                            colorInterpolationFilters="sRGB"
+                          >
+                            <feFlood
+                              floodOpacity={0}
+                              result="BackgroundImageFix"
+                            />
+                            <feColorMatrix
+                              in="SourceAlpha"
+                              type="matrix"
+                              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                              result="hardAlpha"
+                            />
+                            <feOffset dx={-12} dy={25} />
+                            <feGaussianBlur stdDeviation="7.5" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix
+                              type="matrix"
+                              values="0 0 0 0 0.0486109 0 0 0 0 0.0486109 0 0 0 0 0.0486109 0 0 0 0.1 0"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in2="BackgroundImageFix"
+                              result="effect1_dropShadow_1_216"
+                            />
+                            <feBlend
+                              mode="normal"
+                              in="SourceGraphic"
+                              in2="effect1_dropShadow_1_216"
+                              result="shape"
+                            />
+                          </filter>
+                          <linearGradient
+                            id="paint0_linear_1_216"
+                            x1="70.9839"
+                            y1={32}
+                            x2="46.8512"
+                            y2="0.471887"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stopColor="#07D25F" />
+                            <stop offset={1} stopColor="#028139" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <p>deal and pay</p>
+                  </div>
+                </div> */}
               </div>
             </div>
           </div>
         </section>
         <div className="_testimonial_container" id="testimonails">
-          <p>testimonials</p>
+          <p>Referenzen</p>
           <div className="testo_ctr">
             <TestimonialsSlider />
           </div>
         </div>
-
-        {/* <section className="_testimonial_container">
-            <p>testimonials</p>
-          <div className="_testimonial_content">
-            <div className="testo_ctr">
-              <div className="testo_left"></div>
-              <div className="testo_right"></div>
-            </div>
-          </div>
-        </section> */}
         <div className="_socials_container" id="followus">
           <div className="socials_ctr">
             <div className="join_flower_ctr">
               <div className="join_ctr">
                 <div className="join_title">
-                  <span>Join Us</span>
+                  <span>Treten Sie uns bei</span>
                 </div>
                 <h5>
-                  stay connected with us! follow us on social media to stay in
-                  the loop with our latest updates
+                  Bleiben Sie mit uns in Verbindung! Folgen Sie uns auf Social
+                  Media, um stets über unsere neuesten Updates informiert zu
+                  bleiben.
                 </h5>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Culpa, explicabo quibusdam. Fugiat a ad atque soluta
-                  necessitatibus unde corporis consequatur molestiae maxime
-                  obcaecati neque corrupti id, praesentium nam amet minima.
+                  Eingebettet in eine ruhige Nachbarschaft, bietet dieses
+                  Zuhause luxuriöse Annehmlichkeiten und exquisites Design. Vom
+                  prächtigen Eingang bis zu den sorgfältig gestalteten
+                  Innenräumen strahlt jedes Detail Eleganz aus. Unterhalten Sie
+                  Ihre Gäste in den großzügigen Wohnbereichen oder ziehen Sie
+                  sich in den ruhigen Komfort der privaten Schlafzimmer zurück.
+                  Genießen Sie entspannte Spaziergänge durch wunderschön
+                  angelegte Gärten oder entspannen Sie in den luxuriösen,
+                  spa-ähnlichen Badezimmern. Erleben Sie das Höchstmaß an
+                  raffiniertem Wohnen in diesem außergewöhnlichen Rückzugsort.
                 </p>
               </div>
               <div className="flower_ctr">
                 <div className="_flower_box">
-                  <div className="leaf" id="leaf1">
+                  <div className="leaf leaf_hover" id="leaf1">
                     <svg
                       width="50"
                       height="70"
@@ -290,7 +390,7 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <g clip-path="url(#clip0_1_243)">
+                      <g clipPath="url(#clip0_1_243)">
                         <path
                           d="M70 35C70 52.4699 57.2004 66.9498 40.4688 69.5748V45.1172H48.624L50.1758 35H40.4688V28.4348C40.4688 25.6662 41.825 22.9688 46.1727 22.9688H50.5859V14.3555C50.5859 14.3555 46.5801 13.6719 42.7506 13.6719C34.7566 13.6719 29.5312 18.5172 29.5312 27.2891V35H20.6445V45.1172H29.5312V69.5748C12.7996 66.9498 0 52.4699 0 35C0 15.6707 15.6707 0 35 0C54.3293 0 70 15.6707 70 35Z"
                           fill="#1877F2"
@@ -307,7 +407,7 @@ export default function Home() {
                       </defs>
                     </svg>
                   </div>
-                  <div className="leaf" id="leaf2">
+                  <div className="leaf leaf_hover" id="leaf2">
                     <svg
                       width="50"
                       height="60"
@@ -315,7 +415,7 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <g clip-path="url(#clip0_1_331)">
+                      <g clipPath="url(#clip0_1_331)">
                         <path
                           d="M3.75001 4.08249C-0.96499 8.97999 9.86457e-06 14.1825 9.86457e-06 29.9875C9.86457e-06 43.1125 -2.28999 56.27 9.69501 59.3675C13.4375 60.33 46.5975 60.33 50.335 59.3625C55.325 58.075 59.385 54.0275 59.94 46.97C60.0175 45.985 60.0175 14.0075 59.9375 13.0025C59.3475 5.48499 54.72 1.15249 48.6225 0.274994C47.225 0.0724939 46.945 0.0124939 39.775 -6.07967e-06C14.3425 0.0124939 8.76751 -1.12001 3.75001 4.08249Z"
                           fill="url(#paint0_linear_1_331)"
@@ -334,9 +434,9 @@ export default function Home() {
                           y2="7.90493"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#FFDD55" />
-                          <stop offset="0.5" stop-color="#FF543E" />
-                          <stop offset="1" stop-color="#C837AB" />
+                          <stop stopColor="#FFDD55" />
+                          <stop offset="0.5" stopColor="#FF543E" />
+                          <stop offset="1" stopColor="#C837AB" />
                         </linearGradient>
                         <clipPath id="clip0_1_331">
                           <rect width="60" height="60" fill="white" />
@@ -345,7 +445,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <div className="leaf" id="leaf3"></div>
-                  <div className="leaf" id="leaf4">
+                  <div className="leaf leaf_hover" id="leaf4">
                     <svg
                       width="50"
                       height="66"
@@ -353,7 +453,7 @@ export default function Home() {
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <g clip-path="url(#clip0_1_334)">
+                      <g clipPath="url(#clip0_1_334)">
                         <path
                           d="M33 66C51.2254 66 66 51.2254 66 33C66 14.7746 51.2254 0 33 0C14.7746 0 0 14.7746 0 33C0 51.2254 14.7746 66 33 66Z"
                           fill="#FF0000"
@@ -373,45 +473,27 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            {/* <div className="contact_ctr">
-              <div className="_contact_box">
-                <span>Contact Us</span>
-                <div className="contact_inputs">
-                  <div className="contact_fields">
-                    <input placeholder="first name.." />
-                    <input placeholder="last name.." />
-                    <input placeholder="phone.." />
-                    <input placeholder="email.." />
-                  </div>
-                  <div className="message_field">
-                    <textarea placeholder="message..."></textarea>
-                  </div>
-                </div>
-                <button>Send</button>
-              </div>
-            </div> */}
           </div>
         </div>
         <div className="_contact_ctr" id="contact_us">
           <div className="_contact_box">
-            <span>Contact Us</span>
+            <span>Kontaktieren Sie uns</span>
             <div className="contact_inputs">
               <div className="contact_fields">
-                <input placeholder="first name.." />
-                <input placeholder="last name.." />
-                <input placeholder="phone.." />
-                <input placeholder="email.." />
+                <input placeholder="Vorname" />
+                <input placeholder="Nachname" />
+                <input placeholder="Telefonnummer" />
+                <input placeholder="email" />
               </div>
               <div className="message_field">
-                <textarea placeholder="message..."></textarea>
+                <textarea placeholder="Nachricht..."></textarea>
               </div>
             </div>
-            <button>Send</button>
+            <button>Absenden</button>
           </div>
         </div>
         <Footer />
       </div>
-      {/* </div> */}
     </>
   );
 }
