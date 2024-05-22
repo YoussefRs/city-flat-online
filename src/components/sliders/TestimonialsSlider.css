@@ -51,7 +51,7 @@
   border-radius: 0px 100px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  box-shadow: 24px 14px 20.8px 0px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 24px 14px 20.8px 0px rgba(0, 0, 0, 0.2); */
 }
 
 .ep-wrapper {
