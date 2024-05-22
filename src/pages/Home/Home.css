@@ -659,7 +659,8 @@
 }
 
 .search_description p {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
 
 
   @media (min-width: 1200px) {
@@ -675,7 +676,7 @@
   }
 
   @media (max-width: 576px) {
-    font-size: clamp(10px, 0.9vw, 1.5rem);
+    font-size: clamp(14px, 0.9vw, 1.5rem);
   }
 
   font-style: normal;
