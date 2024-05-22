@@ -660,7 +660,7 @@
 
 .search_description p {
   color: rgb(255, 255, 255);
-  font-weight: 700;
+  font-weight: 600;
 
 
   @media (min-width: 1200px) {

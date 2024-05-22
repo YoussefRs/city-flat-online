@@ -363,21 +363,20 @@ export default function Home() {
                   <span>Treten Sie uns bei</span>
                 </div>
                 <h5>
-                  Bleiben Sie mit uns in Verbindung! Folgen Sie uns auf Social
-                  Media, um stets über unsere neuesten Updates informiert zu
-                  bleiben.
+                  Treten Sie uns bei und bleiben Sie mit uns in Verbindung!
+                  Folgen Sie uns auf Social Media, um stets über unsere neuesten
+                  Updates informiert zu bleiben.
                 </h5>
                 <p>
-                  Eingebettet in eine ruhige Nachbarschaft, bietet dieses
-                  Zuhause luxuriöse Annehmlichkeiten und exquisites Design. Vom
-                  prächtigen Eingang bis zu den sorgfältig gestalteten
-                  Innenräumen strahlt jedes Detail Eleganz aus. Unterhalten Sie
-                  Ihre Gäste in den großzügigen Wohnbereichen oder ziehen Sie
-                  sich in den ruhigen Komfort der privaten Schlafzimmer zurück.
-                  Genießen Sie entspannte Spaziergänge durch wunderschön
-                  angelegte Gärten oder entspannen Sie in den luxuriösen,
-                  spa-ähnlichen Badezimmern. Erleben Sie das Höchstmaß an
-                  raffiniertem Wohnen in diesem außergewöhnlichen Rückzugsort.
+                  Unsere kleinen, aber gut eingerichteten Apartments befinden
+                  sich in einer ruhigen Nachbarschaft und bieten luxuriöse
+                  Annehmlichkeiten sowie ein exquisites Design. Vom stilvollen
+                  Eingang bis zu den sorgfältig gestalteten Innenräumen strahlen
+                  unsere Apartments Eleganz aus. Genießen Sie gemütliche Abende
+                  in den kompakten Wohnbereichen oder entspannen Sie im ruhigen
+                  Komfort der privaten Schlafzimmer. Erleben Sie das Höchstmaß
+                  an raffiniertem Wohnen in diesem außergewöhnlichen
+                  Rückzugsort.
                 </p>
               </div>
               <div className="flower_ctr">
