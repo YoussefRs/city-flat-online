@@ -166,7 +166,7 @@ export default function Cards({ card, type, customClass }) {
                   />
                 </svg>
               </div>
-              <p className="label">4 Bedroom</p>
+              <p className="label">1 Bedroom</p>
             </div>
             <div className="_room">
               <div className="icon">
@@ -218,7 +218,7 @@ export default function Cards({ card, type, customClass }) {
                   </defs>
                 </svg>
               </div>
-              <p className="label">2 Bathroom</p>
+              <p className="label">1 Bathroom</p>
             </div>
           </div>
           <div className="card-description">

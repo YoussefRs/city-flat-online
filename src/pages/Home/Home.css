@@ -1187,7 +1187,7 @@
 
 .join_ctr p {
   color: #a1a4a2;
-  text-align: center;
+  text-align: start;
 
   font-size: 12px;
   font-style: italic;

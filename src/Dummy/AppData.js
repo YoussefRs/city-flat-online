@@ -1,31 +1,27 @@
-import pent3 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE.jpg"
-import pent2 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE-BAD1.jpg"
-import pent1 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE-KÜCHE-WOHNEN.jpg"
-import pent4 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE-TERRASSE.jpg"
-import pent5 from "../assets/homepage_mats/PENTHOUSE/WE11- kitchen-seat.jpg"
-import pent6 from "../assets/homepage_mats/PENTHOUSE/SCHLAFEN - 4.jpg"
+import pent3 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE.jpg";
+import pent2 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE-BAD1.jpg";
+import pent1 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE-KÜCHE-WOHNEN.jpg";
+import pent4 from "../assets/homepage_mats/PENTHOUSE/PENHOUSE-TERRASSE.jpg";
+import pent5 from "../assets/homepage_mats/PENTHOUSE/WE11- kitchen-seat.jpg";
+import pent6 from "../assets/homepage_mats/PENTHOUSE/SCHLAFEN - 4.jpg";
 
-import L2 from "../assets/homepage_mats/TOWNLOFT-2&7/WE7BALKON.jpg"
-import L21 from "../assets/homepage_mats/TOWNLOFT-2&7/WE2&7-ANKLEIDE.jpg"
-import L212 from "../assets/homepage_mats/TOWNLOFT-2&7/WE2+7Dusche-WC.jpg"
-import L2122 from "../assets/homepage_mats/TOWNLOFT-2&7/WOHNEN.jpg"
-import L2121 from "../assets/homepage_mats/TOWNLOFT-2&7/SCHLAFEN.jpg"
-import L21212 from "../assets/homepage_mats/TOWNLOFT-2&7/BAD.jpg"
+import L2 from "../assets/homepage_mats/TOWNLOFT-2&7/WE7BALKON.jpg";
+import L21 from "../assets/homepage_mats/TOWNLOFT-2&7/WE2&7-ANKLEIDE.jpg";
+import L212 from "../assets/homepage_mats/TOWNLOFT-2&7/WE2+7Dusche-WC.jpg";
+import L2122 from "../assets/homepage_mats/TOWNLOFT-2&7/WOHNEN.jpg";
+import L2121 from "../assets/homepage_mats/TOWNLOFT-2&7/SCHLAFEN.jpg";
+import L21212 from "../assets/homepage_mats/TOWNLOFT-2&7/BAD.jpg";
 
+import L3 from "../assets/homepage_mats/TOWNLOFT-3/Kochen.jpg";
+import L31 from "../assets/homepage_mats/TOWNLOFT-3/Bad.jpg";
+import L313 from "../assets/homepage_mats/TOWNLOFT-3/SCHLAFEN.jpg";
+import L3131 from "../assets/homepage_mats/TOWNLOFT-3/Wochnen.jpg";
 
-import L3 from "../assets/homepage_mats/TOWNLOFT-3/Kochen.jpg"
-import L31 from "../assets/homepage_mats/TOWNLOFT-3/Bad.jpg"
-import L313 from "../assets/homepage_mats/TOWNLOFT-3/SCHLAFEN.jpg"
-import L3131 from "../assets/homepage_mats/TOWNLOFT-3/Wochnen.jpg"
-
-import L6 from "../assets/homepage_mats/TOWNLOFT-6/W6.jpg"
-import L61 from "../assets/homepage_mats/TOWNLOFT-6/Perspektive.jpg"
-import L616 from "../assets/homepage_mats/TOWNLOFT-6/person.jpg"
-import L6161 from "../assets/homepage_mats/TOWNLOFT-6/terrasse.jpg"
-import L61616 from "../assets/homepage_mats/TOWNLOFT-6/PA.jpg"
-
-
-
+import L6 from "../assets/homepage_mats/TOWNLOFT-6/W6.jpg";
+import L61 from "../assets/homepage_mats/TOWNLOFT-6/Perspektive.jpg";
+import L616 from "../assets/homepage_mats/TOWNLOFT-6/person.jpg";
+import L6161 from "../assets/homepage_mats/TOWNLOFT-6/terrasse.jpg";
+import L61616 from "../assets/homepage_mats/TOWNLOFT-6/PA.jpg";
 
 export const apartmentList = [
   {
@@ -61,6 +57,7 @@ export const apartmentList = [
     verification:
       "8a61d6afab791aa45ba845c2e0f8bdececb3dbf1b8ca03e5cb9bc8478843a01f",
     bathroom: 1,
+    bedroom: 1,
     parking: 1,
     images: [
       { image_url: pent1 },

@@ -30,6 +30,8 @@ export default function Details() {
     };
   }, []);
 
+  console.log(card)
+
   return (
     <>
       <div className="_details">
