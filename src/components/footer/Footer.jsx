@@ -47,8 +47,8 @@ export default function Footer() {
                   Datenschutzrichtlinie
                 </a>
               </li>
-              <li>Widerrufsrecht</li>
-              <li>Impressum</li>
+              {/* <li>Widerrufsrecht</li>
+              <li>Impressum</li> */}
             </ul>
           </div>
         </div>
