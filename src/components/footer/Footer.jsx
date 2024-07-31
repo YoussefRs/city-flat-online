@@ -29,8 +29,24 @@ export default function Footer() {
           <div className="_item_3">
             <ul>
               Ressourcen
-              <li>AGB</li>
-              <li>Datenschutzrichtlinie</li>
+              <li>
+                <a
+                  href="http://localhost:5173/Auftragsverarbeitung-nach-DGSVO-Smoobu-GmbH-cityflat.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  AGB
+                </a>
+              </li>
+              <li>
+              <a
+                  href="http://localhost:5173/Cityflat-Datenschutzerklärung-gem-DGSVO-.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Datenschutzrichtlinie
+                </a>
+              </li>
               <li>Widerrufsrecht</li>
               <li>Impressum</li>
             </ul>
