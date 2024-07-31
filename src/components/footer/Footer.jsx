@@ -31,7 +31,7 @@ export default function Footer() {
               Ressourcen
               <li>
                 <a
-                  href="http://localhost:5173/Auftragsverarbeitung-nach-DGSVO-Smoobu-GmbH-cityflat.pdf"
+                  href="https://city-flat-online.vercel.app/Auftragsverarbeitung-nach-DGSVO-Smoobu-GmbH-cityflat.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -40,7 +40,7 @@ export default function Footer() {
               </li>
               <li>
               <a
-                  href="http://localhost:5173/Cityflat-Datenschutzerklärung-gem-DGSVO-.pdf"
+                  href="https://city-flat-online.vercel.app/Cityflat-Datenschutzerklärung-gem-DGSVO-.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
